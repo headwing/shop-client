@@ -5,6 +5,7 @@ import { Store, Action } from 'usestore-ts';
 import axios from 'axios';
 
 import { ProductSummary } from '../types';
+import { apiService } from '../services/ApiService';
 
 const apiBaseUrl = 'https://shop-demo-api-01.fly.dev';
 
@@ -13,11 +14,12 @@ const apiBaseUrl = 'https://shop-demo-api-01.fly.dev';
 export default class ProductsStore {
   products: ProductSummary[] = [];
 
-  async fetchProducts() {
+  async fetchProducts({ categoryId }: {
+    categoryId?: string;
+  }) {
     this.setProducts([]);
 
-    const { data } = await axios.get(`${apiBaseUrl}/products`);
-    const { products } = data;
+    const products = await apiService.fetchProducts({ categoryId });
 
     this.setProducts(products);
   }

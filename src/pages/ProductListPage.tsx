@@ -1,9 +1,15 @@
-import Products from '../components/product-list/Products';
+import { useSearchParams } from 'react-router-dom';
 
 import useFetchProducts from '../hooks/useFetchProducts';
 
+import Products from '../components/product-list/Products';
+
 export default function ProductListPage() {
-  const { products } = useFetchProducts();
+  const [params] = useSearchParams();
+
+  const categoryId = params.get('categoryId') ?? undefined;
+
+  const { products } = useFetchProducts({ categoryId });
 
   return (
     <div>

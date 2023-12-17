@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import styled from 'styled-components';
+import useFetchCategories from '../hooks/useFetchCategories';
 
 const Container = styled.header`
   margin-bottom: 2rem;
