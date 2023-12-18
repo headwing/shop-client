@@ -1,5 +1,8 @@
 import { useParams } from 'react-router-dom';
 
+import useFetchProduct from '../hooks/useFetchProduct';
+import ProductDetailView from '../components/product-detail/ProductDetailView';
+
 export default function ProductDetailPage() {
   const params = useParams();
 
@@ -20,6 +23,6 @@ export default function ProductDetailPage() {
   }
 
   return (
-    <ProductDetail />
+    <ProductDetailView />
   );
 }

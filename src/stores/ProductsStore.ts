@@ -2,12 +2,8 @@ import { singleton } from 'tsyringe';
 
 import { Store, Action } from 'usestore-ts';
 
-import axios from 'axios';
-
 import { ProductSummary } from '../types';
 import { apiService } from '../services/ApiService';
-
-const apiBaseUrl = 'https://shop-demo-api-01.fly.dev';
 
 @singleton()
 @Store()
